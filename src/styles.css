@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 *,
 *::before,
@@ -11,8 +11,9 @@
 
 html,
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Playwrite CU", Arial, sans-serif;
   color: #333;
+  height: 100%;
 }
 
 #background {
@@ -20,7 +21,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-image: url("./assets/background.jpg");
   background-size: cover;
   background-position: center;
@@ -31,7 +32,8 @@ body {
 #content {
   position: relative;
   width: 100%;
-  height: 100vh;
+  padding-top: 80px;
+  min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,17 +42,29 @@ body {
 }
 
 nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  gap: 20em;
   align-items: center;
   color: #fff;
-  padding: 20px;
+  padding: 10px;
   background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  border-bottom: 1px solid #fff;
+  z-index: 1000;
+}
+nav p {
+  color: #ede0d4;
+  font-size: 2rem;
+}
+nav span {
+  color: #986b54;
 }
 
 h1 {
-  margin-bottom: 10px;
   font-size: 2.5rem;
 }
 
@@ -65,11 +79,8 @@ h1 {
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 20px;
-}
-
-.nav-links li {
-  margin: 0;
+  gap: 10px;
+  font-family: "Poppins", "Courier New", Courier, monospace;
 }
 
 .nav-links a {
@@ -82,6 +93,35 @@ h1 {
 }
 
 .nav-links a:hover {
-  color: #333;
-  background-color: #fff;
+  color: #ede0d4;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+  color: #ede0d4;
+  width: 60vw;
+  font-family: "Spectral", "Courier New", Courier, monospace;
+}
+
+.homepage p {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.homepage button {
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+  transition: border 0.2s ease-out;
+}
+
+.homeButtons {
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  gap: 24px;
 }
