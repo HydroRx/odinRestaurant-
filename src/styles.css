@@ -9,11 +9,18 @@
   border: 0;
 }
 
+:root {
+  --primary-color: #986b54;
+  --secondary-color: #ede0d4;
+
+  --button-color: #656d4a;
+}
+
 html,
 body {
   font-family: "Playwrite CU", Arial, sans-serif;
-  color: #333;
   height: 100%;
+  overflow-y: hidden;
 }
 
 #background {
@@ -21,7 +28,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-image: url("./assets/background.jpg");
   background-size: cover;
   background-position: center;
@@ -32,46 +39,54 @@ body {
 #content {
   position: relative;
   width: 100%;
-  padding-top: 80px;
+  padding-top: 100px;
   min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
 nav {
   position: fixed;
+  display: flex;
   top: 0;
   left: 0;
   width: 100%;
-  display: flex;
-  justify-content: center;
   gap: 20em;
-  align-items: center;
-  color: #fff;
-  padding: 10px;
+  padding: 5px;
   background: rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid var(--secondary-color);
   z-index: 1000;
 }
-nav p {
-  color: #ede0d4;
-  font-size: 2rem;
-}
-nav span {
-  color: #986b54;
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 40px;
+  width: 100%;
 }
 
-h1 {
-  font-size: 2.5rem;
+nav p {
+  color: var(--secondary-color);
+  font-size: 2rem;
+  cursor: default;
+  flex: 1;
+}
+nav span {
+  color: var(--primary-color);
+}
+
+.homepage h1 {
+  font-size: 3rem;
+  letter-spacing: 1px;
+  word-spacing: -0.7rem;
 }
 
 .logo-image {
   width: 80px;
   height: auto;
-  margin-bottom: 20px;
 }
 
 .nav-links {
@@ -85,43 +100,170 @@ h1 {
 
 .nav-links a {
   text-decoration: none;
-  color: #fff;
   font-size: 1.2rem;
   padding: 10px 20px;
   border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s;
+  color: var(--secondary-color);
+  transition: 0.3s, color 0.3s;
 }
 
 .nav-links a:hover {
-  color: #ede0d4;
+  color: var(--primary-color);
 }
 
-.homepage {
+.homepage,
+.contact {
   display: flex;
   flex-direction: column;
   gap: 54px;
-  color: #ede0d4;
+  color: var(--secondary-color);
   width: 60vw;
+  text-align: center;
   font-family: "Spectral", "Courier New", Courier, monospace;
 }
 
 .homepage p {
   font-size: 1.1rem;
   font-weight: bold;
+  text-align: left;
+  line-height: 32px;
+  word-spacing: -0.1rem;
 }
 
 .homepage button {
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1.8rem;
   border: 1px solid transparent;
   border-radius: 1rem;
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   transition: border 0.2s ease-out;
+  cursor: pointer;
 }
 
 .homeButtons {
   display: flex;
   flex-direction: center;
   justify-content: center;
-  gap: 24px;
+  gap: 100px;
+}
+
+abbr {
+  text-decoration: none;
+}
+
+.menuButton {
+  background-color: var(--button-color);
+  color: var(--secondary-color);
+}
+
+.contactButton {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card h2 {
+  align-self: center;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card li {
+  border-bottom: 1px solid var(--primary-color);
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card li span {
+  margin-left: 10px;
+}
+
+.card li:last-child {
+  border-bottom: none;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+}
+
+.contact-container h2 {
+  font-size: 3rem;
+  letter-spacing: 1px;
+  word-spacing: -0.7rem;
+}
+
+.contact-container p {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: left;
+  line-height: 32px;
+  word-spacing: -0.1rem;
+}
+
+.contact-info {
+  margin-top: 20px;
+}
+
+.contact-info p {
+  margin: 5px 0;
+}
+
+.contact-info a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 850px) {
+  .menu {
+    grid-template-columns: 1fr;
+  }
+  body {
+    background-image: url("./assets/coffee.jpg");
+    overflow: auto;
+  }
+  nav p {
+    display: none;
+  }
+  .navBar {
+    justify-content: center;
+  }
+
+  .logo-image {
+    width: 40px;
+  }
+  .nav-links a {
+    font-size: 1rem;
+  }
 }
