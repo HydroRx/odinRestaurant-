@@ -266,4 +266,10 @@ abbr {
   .nav-links a {
     font-size: 1rem;
   }
+  .homepage p {
+    font-size: 0.9rem;
+  }
+  .contact-container p {
+    font-size: 0.9rem;
+  }
 }
